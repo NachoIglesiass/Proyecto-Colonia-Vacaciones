@@ -22,7 +22,7 @@ class Participantes:
         self.nombre_padre_tutor = nombre_padre_tutor
         self.numero_telefono = numero_telefono
 
-    def guardar_en_db(self):
+    def guardar_en_db(self, cursor, database):
         query = """
                INSERT INTO participantes (nombre, apellido, dni, edad, fecha_nacimiento, nombre_padre_tutor, numero_telefono)
                VALUES (%s, %s, %s, %s, %s, %s, %s)
@@ -33,16 +33,15 @@ class Participantes:
             cursor.execute(query, valores)
             database.commit()
             return True
-        except pymysql.IntegrityError as e:  # Manejo de errores específicos de PyMySQL
-            # Verifica si el error es un duplicado
-           if e.args[0] == 1062:  # Código de error para duplicados
-               flash("Error: El DNI ya está registrado.", "error")
-           else:
-               flash("Error al guardar en la base de datos.", "error")
-           return False
-        except Exception as e:  # Captura cualquier otro error no previsto
-               flash(f"Ocurrió un error inesperado. El DNI ya esta registrado", "error")
-               return False
+        except pymysql.IntegrityError as e:
+            if e.args[0] == 1062:
+                flash("Error: El DNI ya está registrado.", "error")
+            else:
+                flash("Error al guardar en la base de datos.", "error")
+            return False
+        except Exception as e:
+            flash(f"Ocurrió un error inesperado: {e}", "error")
+            return False
 
 
 # Ruta principal para mostrar formulario
@@ -67,7 +66,8 @@ def preinscripcion():
     participante = Participantes(nombre, apellido, dni, edad, fecha_nacimiento, nombre_padre_tutor, numero_telefono)
     
     try:
-        if participante.guardar_en_db():
+        database, cursor = conectar.conectar_bdd()  # Establecer conexión aquí
+        if database and participante.guardar_en_db(cursor, database):
             flash("Participante guardado correctamente", "success")
         else:
             flash("Error al guardar participante", "error")
@@ -75,6 +75,11 @@ def preinscripcion():
         flash(f"Falta el campo: {e.args[0]}", "error")
     except Exception as e:
         flash(f"Ocurrió un error inesperado: {e}", "error")
+    finally:
+        if cursor:
+            cursor.close()
+        if database:
+            database.close()
     return redirect(url_for('index'))
 
 
