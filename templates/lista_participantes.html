@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Participantes</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lista.css') }}">
+</head>
+<body>
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4 text-center text-blue-600">Lista de Participantes</h1>
+        
+        <div class="flex justify-between mb-4">
+            <a href="{{ url_for('descargar_participantes') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">Descargar Planilla</a>
+            <a href="{{ url_for('logout') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">Cerrar sesión</a>
+        </div>
+        
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+                <thead>
+                    <tr class="bg-blue-500 text-white">
+                        <th class="px-4 py-2 border-b text-left">Id</th>
+                        <th class="px-4 py-2 border-b text-left">Nombre</th>
+                        <th class="px-4 py-2 border-b text-left">Apellido</th>
+                        <th class="px-4 py-2 border-b text-left">DNI</th>
+                        <th class="px-4 py-2 border-b text-left">Edad</th>
+                        <th class="px-4 py-2 border-b text-left">Fecha de Nacimiento</th>
+                        <th class="px-4 py-2 border-b text-left">Padre</th>
+                        <th class="px-4 py-2 border-b text-left">Teléfono</th>
+                        <th class="px-4 py-2 border-b text-left">Preinscripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in participantes %}
+                    <tr class="hover:bg-gray-100 transition duration-300">
+                        <td class="border px-4 py-2">{{ p[0] }}</td>
+                        <td class="border px-4 py-2">{{ p[1] }}</td>
+                        <td class="border px-4 py-2">{{ p[2] }}</td>
+                        <td class="border px-4 py-2">{{ p[3] }}</td>
+                        <td class="border px-4 py-2">{{ p[4] }}</td>
+                        <td class="border px-4 py-2">{{ p[5] }}</td>
+                        <td class="border px-4 py-2">{{ p[6] }}</td>
+                        <td class="border px-4 py-2">{{ p[7] }}</td>
+                        <td class="border px-4 py-2">{{ p[8] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

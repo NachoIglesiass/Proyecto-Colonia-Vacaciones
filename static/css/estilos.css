@@ -1,0 +1,27 @@
+/* Estilos para el encabezado y la barra de navegación */
+header, nav {
+    position: sticky; /* Fijo en la parte superior */
+    width: 100%; /* Ancho completo */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+header {
+    top: 0; /* Encabezado en la parte superior */
+}
+nav {
+    top: 60px; /* Ajusta según la altura del encabezado */
+}
+body {
+    padding-top: 0px; /* Espacio para el encabezado y la barra de navegación */
+}
+.swiper-container {
+    margin-top: 0; /* Eliminar el margen superior */
+}
+/* Estilo para el menú móvil */
+#mobile-menu {
+    position: fixed; /* Fijo en la parte superior */
+    top: 60px; /* Ajusta según la altura del encabezado */
+    left: 0;
+    right: 0;
+    background-color: #2d3748; /* Color de fondo del menú */
+    z-index: 999; /* Asegúrate de que esté por encima de otros elementos */
+}

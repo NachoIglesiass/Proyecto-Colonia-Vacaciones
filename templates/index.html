@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mas allá del juego</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body class="bg-gray-100">
+    <!-- Encabezado -->
+    <header class="bg-blue-600 text-white py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <button id="menu-toggle" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <h1 class="text-3xl md:text-4xl font-bold text-center flex-1">Mas allá del juego</h1>
+            <!-- Botón de inicio de sesión -->
+            <a href="{{ url_for('login') }}" class="flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                <i class="fas fa-sign-in-alt text-l "></i> <!-- Icono con margen a la derecha -->
+                
+            </a>
+        </div>
+    </header>
+    <!-- Barra de navegacion -->
+    <nav class="bg-gray-800 text-white md:block hidden" id="nav-menu">
+        <div class="container mx-auto flex justify-center">
+            <a class="px-4 py-2 hover:bg-gray-700" href="#home">Inicio</a>
+            <a class="px-4 py-2 hover:bg-gray-700" href="#about">Sobre Nosotros</a>
+            <a class="px-4 py-2 hover:bg-gray-700" href="#activities">Actividades</a>
+            <a class="px-4 py-2 hover:bg-gray-700" href="#preinscription">Preinscripción</a>
+            <a class="px-4 py-2 hover:bg-gray-700" href="#contact">Contacto</a>
+        </div>
+    </nav>
+    <!-- Menu para pantallas pequeñas -->
+    <div class="md:hidden" id="mobile-menu" style="display: none;">
+        <div class="bg-gray-800 text-white">
+            <div class="container mx-auto flex flex-col">
+                <a class="px-4 py-2 hover:bg-gray-700" href="#home">Inicio</a >
+                <a class="px-4 py-2 hover:bg-gray-700" href="#about">Sobre Nosotros</a>
+                <a class="px-4 py-2 hover:bg-gray-700" href="#activities">Actividades</a>
+                <a class="px-4 py-2 hover:bg-gray-700" href="#preinscription">Preinscripción</a>
+                <a class="px-4 py-2 hover:bg-gray-700" href="#contact">Contacto</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider Section -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper" id="home">
+            <div class="swiper-slide relative">
+                <img alt="Niños felices jugando al aire libre" class="w-full h-96 object-cover" src="https://storage.googleapis.com/a1aa/image/rKsbupalFj4BDd4DnDYKJF5cpaqrriDfALcAMef13XVtl8ynA.jpg"/>
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <h1 class="text-white text-3xl md:text-4xl lg:text-6xl font-bold text-center">¡Bienvenidos a la mejor colonia de vacaciones!</h1>
+                </div>
+            </div>
+            <div class="swiper-slide relative">
+                <img alt="Niños disfrutando de actividades al aire libre" class="w-full h-96 object-cover" src="https://media.istockphoto.com/id/1367828290/photo/a-group-of-preschoolers-running-on-the-grass-in-the-park.jpg?s=1024x1024&w=is&k=20&c=EYPvp8Q-WLtRHujs_ZhsHk5tN6wymD5bc0GYDasbj5M="/>
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <h1 class="text-white text-3xl md:text-4xl lg:text-6xl font-bold text-center">¡Diversión y aprendizaje garantizados!</h1>
+                </div>
+            </div>
+            <div class="swiper-slide relative">
+                <img alt="Niños en una actividad de grupo" class="w-full h-96 object-cover" src="https://www.buscaletras.com/wp-content/uploads/2021/06/image-46.png"/>
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <h1 class="text-white text-3xl md:text-4xl lg:text-6xl font-bold text-center">¡Únete a nosotros este verano!</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Seccion Sobre Nosotros -->
+<section class="section py-8" id="about">
+    <div class="container mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Sobre Nosotros</h2>
+        <p class="text-lg mb-4">Somos una colonia de vacaciones diseñada para proporcionar un entorno seguro, divertido y educativo para niños y niñas. Nuestro objetivo es fomentar el desarrollo físico y social de nuestros participantes a través de una variedad de actividades y programas.</p>
+        <img class="mx-auto rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3" height="400" src="{{ url_for('static', filename='imagenes/icono-colonia-de-vacaciones.jpg') }}" width="800" alt="Logo de la Aplicación"/>
+        <h3 class="text-xl md:text-2xl font-bold mb-2 mt-2">Nuestro Equipo:</h3>
+        <p class="text-lg mb-2">Marcelo Funes: Profesor de Educación Física</p>
+        <p class="text-lg mb-2">Santiago López: Profesor de Educación Física</p>
+        <p class="text-lg mb-2">Germán Sarmiento: Psicopedagogo</p>
+        <p class="text-lg mb-2">Ailén Flores: Psicopedagoga</p>
+    </div>
+</section>
+
+    <!-- Sección Actividades -->
+<section class="section py-8 bg-white" id="activities">
+    <div class="container mx-auto text-center">
+        <!-- Objetivos de las actividades -->
+        <div class="mb-6 p-6 bg-blue-50 border-l-4 border-blue-500 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-bold mb-2 text-blue-600">Objetivos de las Actividades</h2>
+            <p class="text-lg mb-4 text-gray-700">Nuestras actividades están diseñadas para fomentar el desarrollo integral de los niños a través de los siguientes objetivos:</p>
+            <ul class="list-disc list-inside text-left mx-auto max-w-md">
+                <li class="mb-2 text-gray-800"><strong>Inteligencia Emocional:</strong> Fomentar la comprensión y gestión de las emociones.</li>
+                <li class="mb-2 text-gray-800"><strong>Normas de Convivencia:</strong> Promover el respeto y la colaboración entre los participantes.</li>
+                <li class="mb-2 text-gray-800"><strong>Valores:</strong> Inculcar valores como la empatía, la responsabilidad y la solidaridad.</li>
+                <li class="mb-2 text-gray-800"><strong>Inteligencias Múltiples:</strong> Desarrollar diversas habilidades a través de actividades variadas.</li>
+                <li class="mb-2 text-gray-800"><strong>Habilidades Sociales:</strong> Mejorar la comunicación y el trabajo en equipo.</li>
+            </ul>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Algunas de Nuestras Actividades</h2>
+        <div class="activities flex flex-wrap justify-center">
+            <div class="activity w-full md:w-1/3 p-4 transition-transform transform hover:scale-105 hover:shadow-lg">
+                <img alt="Niños jugando fútbol en un campo verde" class="w-full h-48 object-cover rounded-lg mb-4 transition-opacity duration-300 hover:opacity-80" height="200" src="https://th.bing.com/th/id/OIP.x-Xtc5owEoljD7ZnJxkbaAHaE2?pid=ImgDet&w=184&h=120&c=7&dpr=1,3" width="400"/>
+                <h3 class="text-xl font-bold mb-2">Dramatización/Arte</h3>
+            </div>
+            <div class="activity w-full md:w-1/3 p-4 transition-transform transform hover:scale-105 hover:shadow-lg">
+                <img alt="Niños nadando en una piscina" class="w-full h-48 object-cover rounded-lg mb-4 transition-opacity duration-300 hover:opacity-80" height="200" src="https://storage.googleapis.com/a1aa/image/5eSUfwV1drvKgUSlERjrfi86Yz8pifefUGjl7TelP0AfySeynA.jpg" width="400"/>
+                <h3 class="text-xl font-bold mb-2">Piscina</h3>
+            </div>
+            <div class="activity w-full md:w-1/3 p-4 transition-transform transform hover:scale-105 hover:shadow-lg">
+                <img alt="Niños haciendo manualidades con papel y colores" class="w-full h-48 object-cover rounded-lg mb-4 transition-opacity duration-300 hover:opacity-80" height="200" src="https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=600" width="400"/>
+                <h3 class="text-xl font-bold mb-2">Juegos Sensoriales</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seccion Preinscripcion -->
+    <section class="section py-8" id="preinscription">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center">Preinscripción</h2>
+    
+       <!-- Formulario Preinscripcion-->
+<div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl mx-auto">
+         <form action="{{ url_for('preinscripcion') }}" method="POST">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="nombre" name="nombre" required type="text"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="apellido">Apellido</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="apellido" name="apellido" required type="text"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="dni">DNI</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="dni" name="dni" required type="text"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="edad">Edad</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="edad" name="edad" required type="number"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="fecha_nacimiento" name="fecha_nacimiento" required type="date"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre_padre_tutor">Nombre del Padre/Tutor</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="nombre_padre_tutor" name="nombre_padre_tutor" required type="text"/>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="telefono">Número de Teléfono</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" id="telefono" name="numero_telefono" required type="tel"/>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105" type="submit">Enviar</button>
+             </div>
+         </form>
+      </div>
+</div>
+
+<!-- Mostrar mensajes de flash -->
+<div class="container mx-auto mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="mb-4">
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="p-4 mb-2 text-sm text-white rounded-lg 
+                            {% if category == 'success' %} bg-green-500 {% endif %}
+                            {% if category == 'error' %} bg-red-500 {% endif %}
+                            {% if category == 'warning' %} bg-yellow-500 {% endif %}
+                            {% if category == 'info' %} bg-blue-500 {% endif %}
+                        ">
+                            {{ message }}
+                            <button type="button" class="ml-2 text-white hover:text-gray-200" onclick="this.parentElement.style.display='none'">
+                                &times;
+                            </button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
+
+</section>
+
+    <!-- Seccion Contacto -->
+    <section class="section py-8" id="contact">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Contacto</h2>
+            <p class="text-lg mb-4">Para más información, contáctanos a través de:</p>
+            <p class="text-lg mb-2"><i class="fas fa-phone"></i> Teléfono: 3876-331447</p>
+            <p class="text-lg mb-2"><i class="fas fa-phone"></i> Teléfono: 387 6-583657</p>
+            <p class="text-lg mb-2"><i class="fas fa-phone"></i> Teléfono: 3876-416226</p>
+            <p class="text-lg mb-2"><i class="fas fa-phone"></i> Teléfono: 3876-666225</p>
+            <p class="text-lg mb-2"><i class="fas fa-map-marker-alt"></i> Dirección: Calle Belgrano N°30, Club Unión BB.</p>
+        </div>
+    </section>
+
+    <!-- Pie de pagina -->
+    <footer class="footer bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>© 2023 Más Allá del Juego. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
